@@ -24,16 +24,20 @@
             <thead>
                 <tr>
                     <th>
-                        Employee First Name
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDirection=' + ${reverseSortDir} }">
+                            Employee First Name </a>
                     </th>
                     <th>
-                        Employee Last Name
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDirection=' + ${reverseSortDir} }">
+                        Employee Last Name </a>
                     </th>
                     <th>
-                        Employee Email
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDirection=' + ${reverseSortDir} }">
+                        Employee Email </a>
                     </th>
                     <th>
-                        Employee Address
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=address&sortDirection=' + ${reverseSortDir} }">
+                        Employee Address </a>
                     </th>
                     <th>
                         <div align="center">Actions</div>
@@ -73,14 +77,14 @@
 
                 <div class="col-sm-4" style="padding-top: 7px">
                     <span th:each="i: ${#numbers.sequence(1 , totalPages)}">
-                        <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+                        <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}  + '?sortField='+${sortField}+'&sortDirection=' + ${sortDir}}">[[${i}]]</a>
                         <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
                     </span>
                 </div>
 
                 <div class="col-sm-1.5">
                     <a th:if="${currentPage > 1}"
-                       th:href="@{'/page/' + ${currentPage - 1}}"
+                       th:href="@{'/page/' + ${currentPage - 1} + '?sortField='+${sortField}+'&sortDirection=' + ${sortDir}}"
                        class="btn btn-outline-primary">Previous</a>
                     <span th:unless="${currentPage > 1}"
                           class="btn btn-outline-secondary disabled">Previous</span>
@@ -88,7 +92,7 @@
 
                 <div class="col-sm-1">
                     <a th:if="${currentPage < totalPages}"
-                       th:href="@{'/page/' + ${currentPage + 1}}"
+                       th:href="@{'/page/' + ${currentPage + 1} + '?sortField='+${sortField}+'&sortDirection=' + ${sortDir}}"
                        class="btn btn-outline-primary">Next</a>
                     <span th:unless="${currentPage < totalPages}"
                           class="btn btn-outline-secondary disabled">Next</span>
@@ -96,7 +100,7 @@
 
                 <div class="col-sm-1">
                     <a th:if="${currentPage < totalPages}"
-                       th:href="@{'/page/' + ${totalPages}}"
+                       th:href="@{'/page/' + ${totalPages} + '?sortField='+${sortField}+'&sortDirection=' + ${sortDir}}"
                        class="btn btn-outline-primary">Last</a>
                     <span th:unless="${currentPage < totalPages}"
                           class="btn btn-outline-secondary disabled">Last</span>

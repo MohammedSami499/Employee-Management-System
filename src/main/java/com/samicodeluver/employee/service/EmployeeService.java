@@ -14,7 +14,7 @@ public interface EmployeeService {
     public void addEmployee(Employee employee);
     public Employee getEmployeeById(Long id);
     public void deleteEmployee(Long id);
-    public Page<Employee> findPaginated(int pageNo , int pageSize, String sortField, String sortMethod);
+    public Page<Employee> findPaginated(int pageNo , int pageSize, String sortField, String sortDirection);
 //    public void updateEmployee(Employee employee);
 
 }
