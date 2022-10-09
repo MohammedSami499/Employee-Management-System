@@ -72,7 +72,7 @@ public class EmployeeController {
         int pageSize = 5;
 
         Page<Employee> page = employeeService.findPaginated(pageNo , pageSize , sortField ,sortDirection);
-        List<Employee> employeeList = page.getContent();
+        List<Employee> employeeList = page.getContent( );
 
         model.addAttribute("totalEmployee" , employeeList);
         model.addAttribute("currentPage" , pageNo);
