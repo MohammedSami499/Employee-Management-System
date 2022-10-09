@@ -63,6 +63,7 @@ public class EmployeeController {
         return "redirect:/";
     }
 
+
     @GetMapping("/page/{pageNo}")
     public String findPaginated(@PathVariable("pageNo") int pageNo ,
                                 Model model,
